@@ -1,6 +1,8 @@
 # pview
 
-A preview script for pantheon
+A script for pantheon styled AsciiDoc previews.
+
+Use in addition to `asciidoctor` for previewing your files.
 
 Before installing this, make sure your system is capable of running HAML templates:
 
@@ -9,12 +11,12 @@ Before installing this, make sure your system is capable of running HAML templat
 gem install --user tilt
 gem install --user coderay
 gem install --user haml
-----
+```
 
 When you're ready to go, install `pview` using:
 
 ```
-npm i -g pview
+npm i -g @techwriter/pview
 ```
 
 Now you can create pantheon html from anywhere on your system:
