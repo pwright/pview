@@ -1,5 +1,5 @@
 {
-  "name": "@pwright/pview",
+  "name": "@techwriter/pview",
   "version": "0.0.1",
   "description": "A previewer for AsciiDoc using Pantheon II styling",
   "main": "index.js",
