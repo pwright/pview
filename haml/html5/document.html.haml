@@ -1,17 +1,16 @@
 !!! 5
 - portalUrl = 'access.redhat.com'
 
-- if (@document.attr :pantheonenv) == 'dev'
-  - portalUrl = 'access.dev.redhat.com'
-- if (@document.attr :pantheonenv) == 'dev2'
-  - portalUrl = 'access.dev.redhat.com'
-- if (@document.attr :pantheonenv) == 'qa'
-  - portalUrl = 'access.qa.redhat.com'
-- if (@document.attr :pantheonenv) == 'stage'
-  - portalUrl = 'access.stage.redhat.com'
+-# - if (@document.attr :pantheonenv) == 'dev'
+-#   - portalUrl = 'access.dev.redhat.com'
+-# - if (@document.attr :pantheonenv) == 'dev2'
+-#   - portalUrl = 'access.dev.redhat.com'
+-# - if (@document.attr :pantheonenv) == 'qa'
+-#   - portalUrl = 'access.qa.redhat.com'
+-# - if (@document.attr :pantheonenv) == 'stage'
+-#   - portalUrl = 'access.stage.redhat.com'
 
-- pantheonCssPath = "./rhdocs.min.css"
-- cpDocsJsPath = "//#{portalUrl}/webassets/avalon/j/public_modules/node_modules/@cpelements/cp-documentation/dist/cp-documentation.umd.js"
+- pantheonCssPath = "https://#{portalUrl}/webassets/avalon/j/public_modules/node_modules/@cpelements/cp-documentation/dist/rhdocs.min.css"
 
 
 - wrappingTag = 'cp-documentation'
@@ -32,24 +31,33 @@
 
     %link(rel="stylesheet" href=pantheonCssPath)
 
-    - # Dummy cp chrome code
-    :javascript
-      window.portal = {
-        analytics : {},
-        host      : "https://#{portalUrl}",
-        idp_url   : "https://sso.redhat.com",
-        lang      : "en",
-        version   : "7b09880",
-        builddate : "2020-06-10T14:50:01.831Z",
-        fetchdate : "2020-06-10T14:50:04-0400",
-        nrid      : "14615289",
-        nrlk      : "2a497fa56f"
-      };
+    -#  Dummy cp chrome code
+    -# :javascript
+    -#   window.portal = {
+    -#     analytics : {},
+    -#     host      : "https://#{portalUrl}",
+    -#     idp_url   : "https://sso.redhat.com",
+    -#     lang      : "en",
+    -#     version   : "7b09880",
+    -#     builddate : "2020-06-10T14:50:01.831Z",
+    -#     fetchdate : "2020-06-10T14:50:04-0400",
+    -#     nrid      : "14615289",
+    -#     nrlk      : "2a497fa56f"
+    -#   };
+
+    -# %script(src="https://#{portalUrl}/webassets/avalon/j/lib/require.js")
+
+    -# :javascript
+    -#   chrometwo_require(["pfe", "wc"], function (pfe, wc) {
+    -#     pfe.include("pfe-icon");
+    -#     wc.include("@cpelements/cp-documentation/dist/cp-documentation.umd");
+    -#   });
+
     %script(src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.3.0/custom-elements-es5-adapter.js")
     %script(src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.3.0/webcomponents-bundle.js")
-    %script(src="https://#{portalUrl}/webassets/avalon/j/lib/require.js")
-    :javascript
-      chrometwo_require(["#{cpDocsJsPath}"]);
+
+    %script(type="module" src="https://#{portalUrl}/webassets/avalon/j/public_modules/node_modules/@patternfly/pfe-icon/dist/pfe-icon.js")
+    %script(type="module" src="https://#{portalUrl}/webassets/avalon/j/public_modules/node_modules/@cpelements/cp-documentation/dist/cp-documentation.js")
 
     :javascript
       window.addEventListener('load', function() {

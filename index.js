@@ -16,11 +16,9 @@ const argv = require("yargs").command(
     //destinationfile not implemented
 
 var hamlPath = __dirname + '/haml';
-var cssPath = __dirname + '/rhdocs.min.css';
 
 
 exec(`asciidoctor -T ${hamlPath} ${sourcefile}`, {});
-exec(`cp ${cssPath} .`, {});
 
   }
   ).argv;
