@@ -3,22 +3,25 @@
 var fs = require('fs');
 var path = require('path');
 var dir = __dirname;
-const exec = require("child_process").execSync;
+const { exec } = require("child_process");
 
+var myArgs = process.argv.slice(2).join(' ');
 
-const argv = require("yargs").command(
-  "$0 <source file>",
-  "converts AsciiDoc file to HTML using pantheon styles",
-  () => {},
-  function ({ sourcefile, destinationfile }) {
-    console.log({ sourcefile, destinationfile });
-
-    //destinationfile not implemented
+console.log(myArgs);
 
 var hamlPath = __dirname + '/haml';
+var checkPath = __dirname + '/check.sh';
+exec(checkPath, (error, data, getter) => {
+	if(error){
+		//console.log("error",error.message);
+		return;
+	}
+	if(getter){
+		console.log("data",data);
+		return;
+	}
+	console.log("data",data);
 
+});
 
-exec(`asciidoctor -T ${hamlPath} ${sourcefile}`, {});
-
-  }
-  ).argv;
+exec(`asciidoctor -T ${hamlPath} ${myArgs}`, {});

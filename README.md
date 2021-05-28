@@ -1,11 +1,22 @@
 # pview
 
-A script for pantheon styled AsciiDoc previews.
-
+A script for [Pantheon 2](https://github.com/redhataccess/pantheon) styled AsciiDoc previews.
 Use in addition to `asciidoctor` for previewing your files.
 
-Before installing this, make sure your system is capable of running HAML templates:
+```
+npm i -g @techwriter/pview
 
+pview <adoc-filename>
+
+```
+
+
+Note: `pview` does not inspect your files for validity. Files that are invalid for [Pantheon 2](https://github.com/redhataccess/pantheon) convert without errors. Use this script to validate table and source code layout.
+
+
+**Prerequisites**
+
+Before installing this, make sure your system is capable of running HAML templates:
 
 ```
 gem install --user tilt
@@ -13,16 +24,23 @@ gem install --user coderay
 gem install --user haml
 ```
 
-When you're ready to go, install `pview` using:
+Optionally, install concurrent-ruby.
+
+You can create pantheon html from anywhere on your system, using any valid asciidoctor options:
 
 ```
-npm i -g @techwriter/pview
-```
-
-Now you can create pantheon html from anywhere on your system:
+pview <asciidoctor-options>
 
 ```
-pview <adoc-filename>
-```
 
-Note that this creates a HTML file and a CSS file in the current directory that you probably want to delete after running.
+For example:
+
+```
+pview -a data-uri -a allow-uri-read my-document.adoc
+
+```
+produces an HTML document with embedded images.
+
+
+
+Note that this creates a HTML file that you probably want to delete after previewing.
