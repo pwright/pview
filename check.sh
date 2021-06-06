@@ -10,5 +10,8 @@ coderay --version  && echo "coderay confirmed" || echo "${bold}You must install 
 
 haml --version  && echo "haml confirmed" || echo "${bold}You must install haml `gem install --user haml`${normal}"
 
-
 echo If any of the commands above failed, see https://www.npmjs.com/package/@techwriter/pview
+
+echo checking nebel
+
+ls ~/nebel/bin/nebel
