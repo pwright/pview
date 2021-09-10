@@ -11,7 +11,7 @@ pview <adoc-filename>
 ```
 
 
-Note: `pview` does not inspect your files for validity. Files that are invalid for [Pantheon 2](https://github.com/redhataccess/pantheon) convert without errors. Use this script to validate table and source code layout.
+Note: `pview` does not inspect your files for validity. Files that are invalid for [Pantheon 2](https://github.com/redhataccess/pantheon) convert without errors. Use this script to validate table and source code layout, see [pantheon-cmd](https://github.com/redhataccess/pantheon-cmd) for a convertor that checks for Pantheon 2 correctness.
 
 
 **Prerequisites**
